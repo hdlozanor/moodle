@@ -127,12 +127,7 @@ class fetch extends external_api {
             throw new moodle_exception("The {$itemname} item in {$component}/{$contextid} is not configured for grading with scales");
         }
 
-        $gradeduser = \core_user::get_user($gradeduserid, '*', MUST_EXIST);
-
-        // One can access its own grades. Others just if they're graders.
-        if ($gradeduserid != $USER->id) {
-            $gradeitem->require_user_can_grade($gradeduser, $USER);
-        }
+        $gradeduser = \core_user::get_user($gradeduserid);
 
         $maxgrade = (int) $gradeitem->get_grade_item()->grademax;
 

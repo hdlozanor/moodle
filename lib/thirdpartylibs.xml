@@ -137,7 +137,7 @@
     <location>jquery</location>
     <name>jQuery</name>
     <license>MIT</license>
-    <version>3.5.1</version>
+    <version>3.4.1</version>
     <licenseversion></licenseversion>
   </library>
   <library>
@@ -324,7 +324,7 @@
     <location>h5p</location>
     <name>h5p-php-library</name>
     <license>GPL-3.0</license>
-    <version>1.24.2</version>
+    <version>1.24</version>
   </library>
   <library>
     <location>mdn-polyfills</location>

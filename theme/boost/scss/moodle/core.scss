@@ -1936,7 +1936,6 @@ h3.sectionname .inplaceeditable.inplaceeditingon .editinstructions {
 // Reset for ul.
 ul {
     padding-left: 1rem;
-    -webkit-margin-start: 0.2rem;  /* stylelint-disable-line */
 }
 
 /* YUI 2 Tree View */
@@ -2117,6 +2116,12 @@ $footer-link-color: $bg-inverse-link-color !default;
     }
 }
 
+.open.atto_menu > .dropdown-menu {
+    display: block;
+}
+div.editor_atto_toolbar button .icon {
+    color: $gray-700;
+}
 .w-auto {
     width: auto;
 }
@@ -2422,8 +2427,3 @@ $picker-emojis-per-row: 7 !default;
         color: darken(theme-color-level($color, $alert-color-level), 10%);
     }
 }
-
-.alert a {
-    font-weight: $font-weight-bold;
-}
-

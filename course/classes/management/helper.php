@@ -201,13 +201,13 @@ class helper {
         if ($category->can_change_sortorder()) {
             $actions['moveup'] = array(
                 'url' => new \moodle_url($baseurl, array('action' => 'movecategoryup')),
-                'icon' => new \pix_icon('t/up', new \lang_string('moveup')),
-                'string' => new \lang_string('moveup')
+                'icon' => new \pix_icon('t/up', new \lang_string('up')),
+                'string' => new \lang_string('up')
             );
             $actions['movedown'] = array(
                 'url' => new \moodle_url($baseurl, array('action' => 'movecategorydown')),
-                'icon' => new \pix_icon('t/down', new \lang_string('movedown')),
-                'string' => new \lang_string('movedown')
+                'icon' => new \pix_icon('t/down', new \lang_string('down')),
+                'string' => new \lang_string('down')
             );
         }
 
@@ -359,7 +359,7 @@ class helper {
      *
      * @param \core_course_category $category
      * @param \core_course_list_element $course
-     * @return array
+     * @return string
      */
     public static function get_course_listitem_actions(\core_course_category $category, \core_course_list_element $course) {
         $baseurl = new \moodle_url(
@@ -400,12 +400,12 @@ class helper {
         if ($category->can_resort_courses()) {
             $actions[] = array(
                 'url' => new \moodle_url($baseurl, array('action' => 'movecourseup')),
-                'icon' => new \pix_icon('t/up', \get_string('moveup')),
+                'icon' => new \pix_icon('t/up', \get_string('up')),
                 'attributes' => array('data-action' => 'moveup', 'class' => 'action-moveup')
             );
             $actions[] = array(
                 'url' => new \moodle_url($baseurl, array('action' => 'movecoursedown')),
-                'icon' => new \pix_icon('t/down', \get_string('movedown')),
+                'icon' => new \pix_icon('t/down', \get_string('down')),
                 'attributes' => array('data-action' => 'movedown', 'class' => 'action-movedown')
             );
         }

@@ -434,10 +434,7 @@ class icon_system_fontawesome extends icon_system_font {
         if ($this->map === []) {
             $cache = \cache::make('core', 'fontawesomeiconmapping');
 
-            // Create different mapping keys for different icon system classes, there may be several different
-            // themes on the same site.
-            $mapkey = 'mapping_'.preg_replace('/[^a-zA-Z0-9_]/', '_', get_class($this));
-            $this->map = $cache->get($mapkey);
+            $this->map = $cache->get('mapping');
 
             if (empty($this->map)) {
                 $this->map = $this->get_core_icon_map();
@@ -451,7 +448,7 @@ class icon_system_fontawesome extends icon_system_font {
                         }
                     }
                 }
-                $cache->set($mapkey, $this->map);
+                $cache->set('mapping', $this->map);
             }
 
         }

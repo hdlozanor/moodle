@@ -89,7 +89,7 @@ class message_airnotifier_manager {
                         array('userdeviceid' => $device->id))) {
 
                     // We have to create the device token in airnotifier.
-                    if (! $this->create_token($device->pushid, $device->platform)) {
+                    if (! $this->create_token($device->pushid)) {
                         continue;
                     }
 
@@ -146,10 +146,9 @@ class message_airnotifier_manager {
     /**
      * Create a device token in the Airnotifier instance
      * @param string $token The token to be created
-     * @param string $deviceplatform The device platform (Android, iOS, iOS-fcm, etc...)
      * @return bool True if all was right
      */
-    private function create_token($token, $deviceplatform = '') {
+    private function create_token($token) {
         global $CFG;
 
         if (!$this->is_system_configured()) {
@@ -163,10 +162,7 @@ class message_airnotifier_manager {
             'X-AN-APP-KEY: ' . $CFG->airnotifieraccesskey);
         $curl = new curl;
         $curl->setHeader($header);
-        $params = [];
-        if (!empty($deviceplatform)) {
-            $params["device"] = $deviceplatform;
-        }
+        $params = array();
         $resp = $curl->post($serverurl, $params);
 
         if ($token = json_decode($resp, true)) {

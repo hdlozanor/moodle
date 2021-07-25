@@ -61,8 +61,6 @@ if (strpos($CFG->airnotifierurl, AIRNOTIFIER_PUBLICURL) !== false ) {
     }
 }
 
-echo $OUTPUT->header();
-
 $manager = new message_airnotifier_manager();
 
 if ($key = $manager->request_accesskey()) {
@@ -74,5 +72,6 @@ if ($key = $manager->request_accesskey()) {
 
 $msg .= $OUTPUT->continue_button($returl);
 
+echo $OUTPUT->header();
 echo $OUTPUT->box($msg, 'generalbox ');
 echo $OUTPUT->footer();
